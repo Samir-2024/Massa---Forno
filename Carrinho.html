@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/Carrinho_style.css">
+    <script src="script/Carrinho.js" defer></script> <!-- O defer vai garantir que o script seja carregado após o conteúdo da página -->
+    <title>Carrinho de Compras</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="modelo"></div>
+        <div class="menu">
+            <a href="Cardapio.html" class="link">Cardápio</a>
+            <a href="Restaurante.html" class="link">Restaurante</a>
+            <a href="Carrinho.html" class="link">Carrinho</a>
+            <a href="Ajuda.html" class="link">Ajuda</a>
+        </div>
+        <div class="cadastro">
+            <a href="cadastrar.html" class="link">Cadastrar</a>
+        </div>
+        <div class="button">
+            <a href="login.html" class="link">Login</a>
+        </div>
+    </div>
+
+    <div class="title">Carrinho</div>
+    
+    <button2>
+        <a href="Cardapio.html" class="link">Continuar Comprando</a>
+    </button2>
+    <div class="container-pdt">
+        <table id="carrinho-tabela">
+            <thead>
+                <tr>
+                    <th class="img">Imagem</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os produtos serão adicionados aqui pelo JavaScript -->
+            </tbody>
+        </table>    
+        <div id="valor-total">
+            <!-- O valor total será exibido aqui pelo JavaScript -->
+
+        </div>
+    </div>
+</body>
+
+</html>
