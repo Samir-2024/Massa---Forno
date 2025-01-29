@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/Informacoes.css">
+  <title>Massa & Forno - Pagamento</title>
+</head>
+
+<body>
+  <form class="Endereco" id="formPagamento">
+    <h2>Endereço</h2>
+    
+    <label for="local">Endereço</label>
+    <input class="input-endereco" type="text" name="local" id="local" required>
+
+    <label for="numero">Número</label>
+    <input class="input-endereco" type="number" name="numero" id="numero" required>
+
+    <label for="bairro">Bairro</label>
+    <input class="input-endereco" type="text" name="bairro" id="bairro" required>
+
+    <h2>Forma de Pagamento</h2>
+
+    <select name="pagamento" id="Pagamento" required>
+      <option value="" disabled selected>Selecione uma opção</option>
+      <option value="Credito">Cartão de Crédito</option>
+      <option value="Debito">Cartão de Débito</option>
+      <option value="Dinheiro">Dinheiro</option>
+      <option value="Pix">Pix</option>
+    </select>
+
+    <div id="inputPagamento" class="input-pagamento" style="display: none;">
+      <label for="dadosCartao">Digite os dados do cartão:</label>
+      <input type="text" id="dadosCartao" placeholder="Número do cartão">
+    </div>
+
+    <button type="submit" id="botaoFinalizar" class="submit">Finalizar Pedido</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('formPagamento');
+    const select = document.getElementById('Pagamento');
+    const inputPagamento = document.getElementById('inputPagamento');
+
+    
+    select.addEventListener('change', () => {
+      if (select.value === 'Credito' || select.value === 'Debito') {
+        inputPagamento.style.display = 'block';
+      } else {
+        inputPagamento.style.display = 'none';
+      }
+    });
+
+    // Evento para exibir o alerta ao finalizar pedido
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); 
+
+      alert('Pedido realizado com sucesso !!!');
+
+      
+      window.location.href = "Cardapio.html"; // Redireciona para o cardápio após o alerta
+    });
+  </script>
+</body>
+
+</html>

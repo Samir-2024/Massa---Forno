@@ -14,6 +14,6 @@
     }
     else
     {
-        echo "Conectado";
+        echo "Erro ao Cadastrar";
     }
 ?>

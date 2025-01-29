@@ -25,9 +25,11 @@ function validarFormulario() {
     if (!emailValido || !senhaValida) {
         alert('Seu cadastro não foi realizado');
         return false;
-    }
-}
 
+    }
+
+    return true;
+}
 
 
 

@@ -1,25 +1,43 @@
 <?php
+if (isset($_POST['submit'])) {
+    // Inclui o arquivo de configuração para conexão com o banco de dados
+    include('config.php');
 
-    if(isset($_POST['submit'])) 
-    {
+    // Obtendo os dados do formulário
+    $nome = $_POST['nome'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+    $confirmarsenha = $_POST['confirmarsenha'] ?? '';
+    $telefone = $_POST['telefone'] ?? '';
 
-
-        include('config.php');
-
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $confirmarsenha = $_POST['confirmarsenha'];
-        $telefone = $_POST['telefone'];
-
-
-
-
-
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha, confirmarsenha, telefone) VALUES ('$nome', '$email', '$senha', '$confirmarsenha', '$telefone')");
-        $echo = "Cadastro realizado com sucesso";
+    
+    if (strlen($senha) < 0) {
+        die('A senha deve ter no mínimo 6 caracteres. Cadastro não realizado.');
     }
+
+    if ($senha !== $confirmarsenha) {
+        die('As senhas não correspondem. Cadastro não realizado.');
+    }
+
+    // Criptografar a senha
+    $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+
+    // Preparar e executar a consulta SQL
+    $stmt = $conexao->prepare('INSERT INTO usuarios (nome, email, senha, telefone) VALUES (?, ?, ?, ?)');
+    $stmt->bind_param('ssss', $nome, $email, $senhaHash, $telefone);
+
+    if ($stmt->execute()) {
+        header('Location: http://localhost:8000/Massa---Forno/Login.php');
+    } else {
+        echo 'Erro ao cadastrar usuário.';
+    }
+
+    // Fechar a declaração e a conexão
+    $stmt->close();
+    $conexao->close();
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -30,8 +48,6 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <script src="script/Cadastro.js"></script>
     <title>Massa & Forno - Cadastro</title>
-    <php include (conexao.php); ?>
-
 </head>
 <body>
     <form action="Cadastro.php" method="post" class="form-cadastro">
@@ -42,8 +58,7 @@
         <input class="input-style" type="password" name="confirmarsenha" id="confirmar_senha" placeholder="Confirmar Senha" required>
         <input class="input-style" type="text" name="telefone" id="telefone" placeholder="Telefone" required pattern="{9}[0-9]{8}">
         <button class="button_login" type="submit" name ="submit" onclick="validarFormulario(event) " value="Cadastrar">Cadastrar</button>
-        <a href="Login.html">Já tem uma conta? Faça login</a>
+        <a href="http://localhost:8000/Massa---Forno/Login.php">Já tem uma conta? Faça login</a>
     </form>
-    
 </body>
 </html>

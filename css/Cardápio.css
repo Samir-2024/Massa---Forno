@@ -51,6 +51,7 @@
     color: white;
     border-radius: 15px;
     border: none;
+    cursor: pointer;
 }
 
 .more {
@@ -60,6 +61,7 @@
     color: white;
     border-radius: 15px;
     border: none;
+    cursor: pointer;
 } 
 
 .qtd {
