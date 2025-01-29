@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/Carrinho_style.css">
+    <script src="script/Carrinho.js" defer></script> <!-- O defer vai garantir que o script seja carregado após o conteúdo da página -->
+    <title>Carrinho de Compras</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="modelo"></div>
+        <div class="menu">
+            <a href="Cardapio.html" class="link">Cardápio</a>
+            <a href="Carrinho.html" class="link">Carrinho</a>
+            <a href="Informacoes.html" class="link">Pagamento</a>
+            
+        </div>
+        <div class="cadastro">
+            <a href="http://localhost:8000/Massa---Forno/Cadastro.php" class="link">Cadastrar</a>
+        </div>
+        <div class="button">
+            <a href="http://localhost:8000/Massa---Forno/Login.php" class="login">Login</a>
+        </div>
+    </div>
+
+    <div class="title">Carrinho</div>
+    
+    <button2>
+        <a href="Cardapio.html" class="login">Continuar Comprando</a>
+    </button2>
+    <div class="container-pdt">
+        <table id="carrinho-tabela">
+            <thead>
+                <tr>
+                    <th class="img">Imagem</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>    
+        <div class="comprar">
+            <div class="box_title">
+                <h2>Resumo da Compra</h2>
+            </div>
+            <div class="resumo_compra">
+                <div class="total">
+                    <h3>Frete</h3>
+                    <h3 id="frete">R$ 0,00</h3>
+                </div>
+                <div class="total">
+                    <h3>Total</h3>
+                    <h3 class="total">
+                        <div class="" id="sub-total">0,00</div>
+                    </h3>
+                </div>
+                <div class="container_button">
+                    <button3>
+                        <a class="finalizar" href="http://localhost:8000/Massa---Forno/Cadastro.php">Pagamento</a>
+                    </button3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
